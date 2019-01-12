@@ -1,0 +1,8 @@
+gps_test: uart1.o gps_analyse.o main.o
+        gcc -o gps_test uart1.o gps_analyse.o main.o
+main.o: uart1.c gps_analyse.c main.c gps.h
+        gcc -c  uart1.c gps_analyse.c main.c
+uart1.o:  uart1.c
+        gcc -c  uart1.c
+analyse_gps.o: gps_analyse.c gps.h
+        gcc -c  gps_analyse.c
